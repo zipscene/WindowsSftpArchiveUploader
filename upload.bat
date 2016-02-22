@@ -71,8 +71,8 @@ REM Change to the data directory
 cd "%DATA_DIR%"
 
 REM Use the current date/time as the file name
-SET ZIP_FILE=%date:~-4%-%date:~4,2%-%date:~7,2%%time:~0,2%-%time:~3,2%-%time:~6,2%.zip
-SET PUTTY_BATCH_FILE=%date:~-4%-%date:~4,2%-%date:~7,2%%time:~0,2%-%time:~3,2%-%time:~6,2%.txt
+SET ZIP_FILE=%date:~-4%-%date:~4,2%-%date:~7,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%.zip
+SET PUTTY_BATCH_FILE=%date:~-4%-%date:~4,2%-%date:~7,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%.txt
 
 REM Remove whitespace
 SET ZIP_FILE=%ZIP_FILE: =%
