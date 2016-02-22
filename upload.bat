@@ -47,7 +47,7 @@ REM This is optional. Comment it out or delete it if you do not want to use it.
 SET EXCLUDED_DATA_FOLDER=Folder To Exclude
 
 REM Temporary directory used to create archive file.
-REM SET TMP_DIR=%TEMP%
+SET TMP_DIR=%TEMP%
 
 
 
