@@ -13,8 +13,9 @@ Usage
 4. Update DATA_DIR in the update.bat file to point to the location of the files you wish to archive.
 5. Update or comment out EXCLUDED_DATA_FOLDER in the update.bat file to exclude a folder from the archive.
 6. Update SFTP_USER and SFTP_PASSWORD to the credentials provided by Zipscene.
-7. Test that update.bat executes successfully and the generated file exists on the SFTP server.
-8. Schedule update.bat to execute daily.  You can [use the Windows Task Scheduler](http://www.thewindowsclub.com/how-to-schedule-batch-file-run-automatically-windows-7) to accomplish this.
+7. Update your firewall to allow outbound connections on port 22.
+8. Test that update.bat executes successfully and the generated file exists on the SFTP server.
+9. Schedule update.bat to execute daily.  You can [use the Windows Task Scheduler](http://www.thewindowsclub.com/how-to-schedule-batch-file-run-automatically-windows-7) to accomplish this.
 
 
 
