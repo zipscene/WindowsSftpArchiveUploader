@@ -6,15 +6,15 @@ REM ############## START License ###############
 REM The MIT License (MIT)
 REM Copyright (c) 2016 Zipscene LLC
 
-REM Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal 
-REM in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+REM Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
+REM in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
 REM of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-REM 
+REM
 REM The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-REM 
-REM THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
-REM MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
-REM ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH 
+REM
+REM THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+REM MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+REM ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
 REM THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 REM ############### END License ################
@@ -48,7 +48,6 @@ SET EXCLUDED_DATA_FOLDER=Folder To Exclude
 
 REM Temporary directory used to create archive file.
 REM SET TMP_DIR=%TEMP%
-SET TMP_DIR=%BIN_DIR%
 
 
 
@@ -75,6 +74,10 @@ REM Use the current date/time as the file name
 SET ZIP_FILE=%date:~-4%-%date:~4,2%-%date:~7,2%%time:~0,2%-%time:~3,2%-%time:~6,2%.zip
 SET PUTTY_BATCH_FILE=%date:~-4%-%date:~4,2%-%date:~7,2%%time:~0,2%-%time:~3,2%-%time:~6,2%.txt
 
+REM Remove whitespace
+SET ZIP_FILE=%ZIP_FILE: =%
+SET PUTTY_BATCH_FILE=%PUTTY_BATCH_FILE: =%
+
 
 REM Zip up the data
 IF DEFINED EXCLUDED_DATA_FOLDER (
@@ -91,7 +94,7 @@ REM Generate batch file containing SFTP commands
 
 
 REM Upload the zip file
-%BIN_PSFTP% -l "%SFTP_USER%" -pw "%SFTP_PASSWORD%" -batch -b "%PUTTY_BATCH_FILE%" "%SFTP_SERVER%"
+%BIN_PSFTP% -l "%SFTP_USER%" -pw "%SFTP_PASSWORD%" -b "%TMP_DIR%\%PUTTY_BATCH_FILE%" "%SFTP_SERVER%"
 
 
 REM Cleanup the files
