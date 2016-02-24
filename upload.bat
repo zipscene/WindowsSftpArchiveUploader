@@ -28,6 +28,10 @@ SETLOCAL
 
 REM ############## START Configuration Options ###############
 
+REM Set to a unique name for each computer running the script to prevent overwriting files on the SFTP server.
+SET STORE_NAME=My Unique Computer Name
+
+
 REM Directory containing 7-Zip and SFTP binaries
 SET BIN_DIR=C:\Zipscene_Upload
 
@@ -77,6 +81,9 @@ SET PUTTY_BATCH_FILE=%date:~-4%-%date:~4,2%-%date:~7,2%_%time:~0,2%-%time:~3,2%-
 REM Remove whitespace
 SET ZIP_FILE=%ZIP_FILE: =%
 SET PUTTY_BATCH_FILE=%PUTTY_BATCH_FILE: =%
+
+REM Prepend store name
+SET ZIP_FILE=%STORE_NAME%_%ZIP_FILE%
 
 
 REM Zip up the data
