@@ -16,7 +16,7 @@ Usage
 7. Update SFTP_USER and SFTP_PASSWORD to the credentials provided by Zipscene.
 8. Update your firewall to allow outbound connections on port 22.
 9. Test that upload.bat executes successfully and the generated file exists on the SFTP server.
-10. Schedule upload.bat to execute daily.  You can [use the Windows Task Scheduler](http://www.thewindowsclub.com/how-to-schedule-batch-file-run-automatically-windows-7) to accomplish this.
+10. Schedule upload.bat to execute daily.  You can [use the Windows Task Scheduler to accomplish this](http://www.thewindowsclub.com/how-to-schedule-batch-file-run-automatically-windows-7).
 
 
 
